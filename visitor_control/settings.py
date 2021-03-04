@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'visitor_control.users',
     'visitor_control.porters',
     'visitor_control.visitors',
+    'widget_tweaks', 
 ]
 
 MIDDLEWARE = [
