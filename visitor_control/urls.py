@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-import visitor_control.users.views , visitor_control.core.views
+import visitor_control.users.views , visitor_control.core.views, visitor_control.visitors.views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', visitor_control.core.views.index),
     path('users/', visitor_control.users.views.page_users ), 
+    path('registrar-visitante', visitor_control.visitors.views.register_visitor),
 
 ]
