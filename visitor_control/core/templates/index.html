@@ -2,7 +2,17 @@
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ name_page }}</h1>
+        
+        <a href="{% url 'registrar_visitante' %}" class="btn btn-primary btn-icon-split btn-sm">
+            <span class="text"> Registrar visitantes</span>
+            <span class="icon text-white-50">
+
+                <i class="fas fa-user-plus"></i>
+            </span>
+
+        </a>
     </div>
+
 
     {% if messages %} {% for mensagem in messages %}
 
@@ -98,16 +108,16 @@
                     </thead>
 
                     <tbody>
-                        {% for all_visitor in all_visitors %}
+                        {% for visitor in all_visitors %}
 
                         <tr>
-                            <td>{{ all_visitor.full_name }}</td>
-                            <td>{{ all_visitor.cpf }}</td>
-                            <td>{{ all_visitor.arrival_time }}</td>
-                            <td>{{ all_visitor.authorization_schedule }}</td>
-                            <td>{{ all_visitor.responsible_resident }}</td>
+                            <td>{{ visitor.full_name }}</td>
+                            <td>{{ visitor.cpf }}</td>
+                            <td>{{ visitor.arrival_time }}</td>
+                            <td>{{ visitor.get_authorization_schedule }}</td>
+                            <td>{{ visitor.get_responsible_resident }}</td>
                             <td>
-                                <a href="#">
+                                <a href="{% url 'informacoes_visitantes' id=visitor.id %}">
                                     Ver informações
                                 </a>
                             </td>

@@ -31,17 +31,17 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label>Horário de autorização de entrada</label>
-                        <input type="text" class="form-control" value="{{visitante.authorization_schedule}}" disabled>
+                        <input type="text" class="form-control" value="{{visitante.get_authorization_schedule}}" disabled>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label>Entrada autorizada por</label>
-                        <input type="text" class="form-control" value="{{visitante.responsible_resident}}" disabled>
+                        <input type="text" class="form-control" value="{{visitante.get_responsible_resident}}" disabled>
                     </div>
 
                     <div class="form-group col-md-4">
                         <label>Horário de saída</label>
-                        <input type="text" class="form-control" value="{{visitante.departure_time}}" disabled>
+                        <input type="text" class="form-control" value="{{visitante.get_departure_time}}" disabled>
                     </div>
                 </div>
             </form>
@@ -71,7 +71,7 @@
 
                     <div class="form-group col-md-6">
                         <label>Placa do veículo</label>
-                        <input type="text" class="form-control" value="{{visitante.vehicle_plate}}" disabled>
+                        <input type="text" class="form-control" value="{{visitante.get_vehicle_plate}}" disabled>
                     </div>
                 </div>
             </form>

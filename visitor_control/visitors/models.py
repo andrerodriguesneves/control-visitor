@@ -19,6 +19,31 @@ class Visitors(models.Model):
     registered_by = models.ForeignKey("porters.Porters", 
         verbose_name="Porteiro responsavel pelo registro", on_delete=models.PROTECT)
 
+
+    def get_departure_time(self):
+        if self.departure_time:
+            return self.departure_time
+
+        return "Horário de saída não registrado!"
+
+    def get_authorization_schedule(self):
+        if self.authorization_schedule:
+            return self.authorization_schedule
+
+        return "Visitante aguardando autorização"
+
+    def get_responsible_resident(self):
+        if self.responsible_resident:
+            return self.responsible_resident
+
+        return "Visitante aguardando autorização"
+
+    def get_vehicle_plate(self):
+        if self.vehicle_plate:
+            return self.vehicle_plate
+
+        return "Veículo não registrado"
+
     class Meta:
         verbose_name = "Visitante"
         verbose_name_plural = "Visitantes"
