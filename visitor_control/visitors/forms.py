@@ -22,3 +22,19 @@ class VisitorForm(forms.ModelForm):
                 "required": "Informe o número da casa!"
             }
         }
+
+class AuthorizesVisitorForm(forms.ModelForm):
+    responsible_resident = forms.CharField(required=True)
+
+    class Meta:
+
+        model = Visitors
+        fields = [
+            "responsible_resident"
+        ]
+        error_messages = {
+            "responsible_resident": {
+                "required": "Por favor, informe o nome do morador responsável pela autorização!"
+            }    
+        }
+

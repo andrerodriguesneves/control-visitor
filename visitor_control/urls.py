@@ -15,15 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
 
 import visitor_control.users.views, visitor_control.core.views, visitor_control.visitors.views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login', auth_views.LoginView.as_view(template_name="login.html"), name="login"),
+    path('logout', auth_views.LogoutView.as_view(template_name="logout.html"), name="logout"),
     path('', visitor_control.core.views.index, name='index'),
     path('users/', visitor_control.users.views.page_users ), 
     path('registrar-visitante', visitor_control.visitors.views.register_visitor, name="registrar_visitante"),
     path('visitantes/<int:id>/', visitor_control.visitors.views.visitor_information, name="informacoes_visitantes"),
+    path('visitantes/<int:id>/finalizar-visita', visitor_control.visitors.views.visitor_finalization, name="finalizar_visitantes"),
 
 ]

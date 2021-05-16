@@ -28,8 +28,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Visitantes aguardando autorização</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Aguardando autorização</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ visitantes_aguardando }}</div>
                         </div>
 
                         <div class="col-auto">
@@ -45,8 +45,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Visitantes no condomínio</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">No condomínio</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ visitas_em_andamento }}</div>
                         </div>
 
                         <div class="col-auto">
@@ -62,8 +62,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Visitas finalizadas</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Encerradas </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{visitas_encerradas}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user-check fa-2x text-gray-300"></i>
@@ -78,8 +78,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Visitantes registrados no mês atual</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">registrados no mês atual</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{visitas_totais}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -102,6 +102,7 @@
                         <th>Nome completo</th>
                         <th>CPF</th>
                         <th>Horário de chegada</th>
+                        <th>Status</th>
                         <th>Horário da autorização</th>
                         <th>Autorizado por</th>
                         <th>Mais informações</th>
@@ -112,8 +113,9 @@
 
                         <tr>
                             <td>{{ visitor.full_name }}</td>
-                            <td>{{ visitor.cpf }}</td>
+                            <td>{{ visitor.get_cpf }}</td>
                             <td>{{ visitor.arrival_time }}</td>
+                            <td>{{ visitor.get_status_display }}</td>
                             <td>{{ visitor.get_authorization_schedule }}</td>
                             <td>{{ visitor.get_responsible_resident }}</td>
                             <td>
